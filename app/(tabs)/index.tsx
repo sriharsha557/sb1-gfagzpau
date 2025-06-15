@@ -31,21 +31,14 @@ const { width } = Dimensions.get('window');
 
 // Heart-shaped mood images matching the provided images
 const moodImages = {
-  happy:
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-  excited:
-    'https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-  playful:
-    'https://images.pexels.com/photos/1374510/pexels-photo-1374510.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-  angry:
-    'https://images.pexels.com/photos/897817/pexels-photo-897817.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-  sad: 'https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-  surprised:
-    'https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-  tired:
-    'https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-  silly:
-    'https://images.pexels.com/photos/1374510/pexels-photo-1374510.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+  happy: require('../../assets/images/moods/happy.png'),
+  excited: require('../../assets/images/moods/excited.png'),
+  playful: require('../../assets/images/moods/loving.png'),
+  angry: require('../../assets/images/moods/angry.png'),
+  sad: require('../../assets/images/moods/sad.png'),
+  surprised: require('../../assets/images/moods/confused.png'),
+  tired: require('../../assets/images/moods/tired.png'),
+  silly: require('../../assets/images/moods/anxious.png'),
 };
 
 export default function HomeScreen() {
@@ -53,7 +46,7 @@ export default function HomeScreen() {
   const { moodTypes, loading: moodTypesLoading } = useMoodTypes();
   const { visibilityLevels, loading: visibilityLoading } =
     useVisibilityLevels();
-  const { createMoodEntry } = useMoodEntries();
+    const { createMoodEntry } = useMoodEntries() as any;
 
   const [selectedMood, setSelectedMood] = useState<number | null>(null);
   const [realTalkMode, setRealTalkMode] = useState(false);
